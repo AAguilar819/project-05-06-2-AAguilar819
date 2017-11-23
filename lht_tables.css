@@ -17,15 +17,18 @@
   table, tbody, tr, td, th, caption {
     display: block;
   }
+  /*This makes all these elements be seen as a block element.*/
   thead, h1 {
     display: none;
   }
+  /*This hides the table head and the h1 element.*/
   table caption {
     background-color: gray;
     color: white;
     font-size: 1.5em;
     line-height: 2em;
   }
+  /*This color the table caption, its background, and resizes the text.*/
   td {
     border: 1px dotted gray;
     color: rgb(11, 12, 145);
@@ -33,13 +36,67 @@
     padding-left: 40%;
     min-height: 40px;
   }
+  /*This adds a border that 1 pixel, dotted, and gray. It also gives the color a blue tint. This lastly sets the padding size and the minimum height, while also setting the table datas to a relative position.*/
+  td::before {
+    content: attr(data-date);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40%;
+    padding: 5px;
+  }
+  /*This makes the text within the attribute data-date be displayed before the table at the top-left corner with a width of 40% and a padding of 5 pixels.*/
   tr:nth-of-type(odd) {
     background-color: rgb(255, 235, 178);
     border: 2px solid gray;
   }
+  /*This makes all odd table rows have a yellow color with a 2 pixel solid gray border.*/
 }
 
 /* =============================================
    Tablet and Desktop Styles: greater than 640px
    =============================================
 */
+
+@media screen and (min-width:641px) {
+  table {
+    background: url(lht_photo1.png) right bottom/40% no-repeat;
+    border: 6px double rgb(154, 64, 3);
+    border-collapse: collapse;
+    margin: 20px auto;
+    width: 85%;
+  }
+  /*This gives a background image that's positioned to the bottom-right with a width of 40% that can't repeat. It also collapses the borders, sets the table border to a 6 pixel double lined red color, gives it a width of 85% of the body, and sets the margins to 20 pixels to the top and botoom, and automatically sets the margin for the left and right.*/
+  th, td {
+    border: 1px solid gray;
+    font: 0.85em normal;
+    padding: 5px;
+    width: 14.28%;
+    word-wrap: break-word;
+    vertical-align: text-top;
+  }
+  /*This maked the cells have a 1 pixel solid gray border, sets the padding to 5 pixels, gives each cell 1/7 of the table for width, and changes the text to look more like a calendar.*/
+  td {
+    background-color: rgba(171, 171, 171, 0.6);
+    color: rgb(11, 12, 145);
+  }
+  /*This makes all table data cells have a gray background color and makes the text blue.*/
+  td[data-date~=Feb] {
+    background-color: rgba(232, 214, 148, 0.6);
+    box-shadow: inset gray 0 0 20px;
+  }
+  /*This makes all table data cells with a data-date that contains Feb be yellow colored and have an internal gray shadow with a blur of 20 pixels.*/
+  table caption {
+    caption-side: top;
+    text-align: center;
+    padding-bottom: 10px;
+    font-size: 1.2em;
+    letter-spacing: 3px;
+  }
+  /*This positions and resizes the caption and text.*/
+  thead th {
+    background-color: rgb(154, 64, 3);
+    color: white;
+  }
+  /*This gives the table header cells in the table head group have a red background with white text.*/
+}
