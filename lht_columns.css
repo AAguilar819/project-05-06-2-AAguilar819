@@ -9,3 +9,21 @@
 */
 
 /* Column Styles */
+
+article {
+  column-width: 260px;
+  column-gap: 20px;
+  widows: 2;
+  orphans: 2;
+  column-rule: 1px solid rgb(154, 64, 3);
+}
+
+/*This makes the columns have a width of 260 pixels, have the spacing between columns be 20 pixels, gives the line in the gap a 1 pixels solid red look, and limits the text that can appear at once.*/
+
+article h1 {
+  -webkit-column-span: all;
+  -moz-column-span: all;
+  column-span: all;
+}
+
+/*This makes the h1 in the article span all columns, and is set to work with multiple browsers.*/
